@@ -1,0 +1,15 @@
+package com.myapp.dictionaryapp.presentation.adapters
+
+import android.view.View
+import android.widget.TextView
+import com.myapp.dictionaryapp.R
+import com.myapp.dictionaryapp.presentation.WordUi
+
+class PhoneticsItemViewHolder(view: View) : WordDetailViewHolder<WordUi.PhoneticsItem>(view) {
+    private val textView: TextView = itemView.findViewById(R.id.textView)
+    override fun bind(model: Any) {
+        val value = (model as WordUi.PhoneticsItem).value
+
+        textView.text = value.toString()
+    }
+}

@@ -6,9 +6,9 @@ data class WordCloud(
     @SerializedName("word")
     val word: String,
     @SerializedName("phonetic")
-    val phonetic: String,
+    val phonetic: String?,
     @SerializedName("origin")
-    val origin: String,
+    val origin: String?,
     @SerializedName("phonetics")
     val phonetics: List<PhoneticsItem>,
     @SerializedName("meanings")
@@ -17,21 +17,21 @@ data class WordCloud(
 
 data class PhoneticsItem(
     @SerializedName("text")
-    val text: String,
+    val text: String?,
 )
 
 data class MeaningsItem(
     @SerializedName("partOfSpeech")
-    val partOfSpeech: String,
+    val partOfSpeech: String?,
     @SerializedName("definitions")
     val definitions: List<DefinitionsItem>
 )
 
 data class DefinitionsItem(
     @SerializedName("definition")
-    val definition: String,
+    val definition: String?,
     @SerializedName("example")
-    val example: String,
+    val example: String?,
     @SerializedName("synonyms")
     val synonyms: List<String>,
     @SerializedName("antonyms")

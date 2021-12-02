@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">DictionaryApp</string>
+    <string name="no_connection">No connection</string>
+    <string name="retry">Try again</string>
+    <string name="service_unavailable">ServiceUnavailable</string>
+    <string name="tap_on_seach">Tap on search enter the word and press search button on keyboard</string>
+    <string name="action_search">search</string>
+    <string name="search_results">Search results</string>
+    <string name="no_results">No results</string>
+    <string name="noting">nothing</string>
+    <string name="put_the_word">Enter your word here</string>
+    <string name="search">Search</string>
+    <string name="exampleString">Example:</string>
+    <string name="synonymsString">Synonyms:</string>
+    <string name="antonymsString">Antonyms:</string>
+    <string name="part_of_speechSring">Part of speech:</string>
+    <string name="phoneticSring">Phonetic:</string>
+    <string name="originSring">Origin:</string>
 </resources>
