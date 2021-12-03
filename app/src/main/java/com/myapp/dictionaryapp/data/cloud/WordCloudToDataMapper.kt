@@ -3,7 +3,7 @@ package com.myapp.dictionaryapp.data.cloud
 import com.myapp.dictionaryapp.core.Abstract
 import com.myapp.dictionaryapp.data.*
 
-class WordDataMapper : Abstract.Mapper<List<WordCloud>, List<WordData>> {
+class WordCloudToDataMapper : Abstract.Mapper<List<WordCloud>, List<WordData>> {
     override fun map(data: List<WordCloud>): List<WordData> {
         return data.map { map(it) }
     }

@@ -2,15 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="top"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:gravity="center"
         android:padding="8dp"
         android:text="@string/tap_on_seach"
+        android:textColor="#6788FF"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/enter_a_word"
+        android:textColor="#6788FF"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/press_search"
         android:textColor="#6788FF"
         android:textSize="16sp" />
 

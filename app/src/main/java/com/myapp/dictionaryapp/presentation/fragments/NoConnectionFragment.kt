@@ -3,6 +3,7 @@ package com.myapp.dictionaryapp.presentation.fragments
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -15,6 +16,11 @@ class NoConnectionFragment : BaseFragment(R.layout.fragment_no_connection) {
         override fun onReceive(context: Context?, intent: Intent?) {
             retry?.tryAgain()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        context?.registerReceiver(receiver, IntentFilter())
     }
 
     override fun onAttach(context: Context) {
@@ -30,8 +36,8 @@ class NoConnectionFragment : BaseFragment(R.layout.fragment_no_connection) {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onStop() {
+        super.onStop()
         context?.unregisterReceiver(receiver)
     }
 

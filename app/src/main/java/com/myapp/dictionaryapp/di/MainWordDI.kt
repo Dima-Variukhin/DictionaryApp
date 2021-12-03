@@ -3,28 +3,39 @@ package com.myapp.dictionaryapp.di
 import android.app.Application
 import com.myapp.dictionaryapp.data.WordsRepository
 import com.myapp.dictionaryapp.data.cache.WordsCache
-import com.myapp.dictionaryapp.data.cloud.WordDataMapper
+import com.myapp.dictionaryapp.data.cloud.WordCloudToDataMapper
 import com.myapp.dictionaryapp.data.cloud.WordService
 import com.myapp.dictionaryapp.data.datasource.WordDataStore
 import com.myapp.dictionaryapp.domain.SearchResultsInteractor
 import com.myapp.dictionaryapp.domain.WordDetailsInteractor
 import com.myapp.dictionaryapp.domain.WordInteractor
+import java.lang.UnsupportedOperationException
 
 object MainWordDI {
+    private lateinit var config: DI.Config
     private lateinit var wordsCache: WordsCache
     private var repository: WordsRepository? = null
     private var wordDetailsInteractor: WordDetailsInteractor? = null
     private var wordInteractor: WordInteractor? = null
     private var searchResultsInteractor: SearchResultsInteractor? = null
 
-    fun initialize(app: Application) {
+    fun initialize(app: Application, configuration: DI.Config = DI.Config.RELEASE) {
+        config = configuration
         wordsCache = WordsCache.Base(app)
     }
 
-    fun getWordInteractorImpl(): WordInteractor {
-        if (wordInteractor == null)
+    fun getWordInteractor(): WordInteractor {
+        if (config == DI.Config.RELEASE && wordInteractor == null)
             wordInteractor = makeWordInteractor(getWordRepository())
         return wordInteractor!!
+    }
+
+    fun setWordInteractor(interactor: WordInteractor) {
+        if (config == DI.Config.TEST) {
+            wordInteractor = interactor
+        } else {
+            throw UnsupportedOperationException("cannot set interactor if not a DI.Config.TEST")
+        }
     }
 
     fun getSearchResultsInteractor(): SearchResultsInteractor {
@@ -51,10 +62,11 @@ object MainWordDI {
                 wordsCache,
                 WordDataStore.CacheWordDataStore(wordsCache),
                 WordDataStore.CloudWordDataStore(
+                    NetworkDI.connectionManager,
                     NetworkDI.getService(WordService::class.java),
                     wordsCache
                 ),
-                WordDataMapper()
+                WordCloudToDataMapper()
             )
         return repository!!
     }

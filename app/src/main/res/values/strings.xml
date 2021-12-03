@@ -3,7 +3,9 @@
     <string name="no_connection">No connection</string>
     <string name="retry">Try again</string>
     <string name="service_unavailable">ServiceUnavailable</string>
-    <string name="tap_on_seach">Tap on search enter the word and press search button on keyboard</string>
+    <string name="tap_on_seach">1) Tap on search icon.</string>
+    <string name="enter_a_word">2) Enter a word in english.</string>
+    <string name="press_search">3) And press search button on keyboard.</string>
     <string name="action_search">search</string>
     <string name="search_results">Search results</string>
     <string name="no_results">No results</string>

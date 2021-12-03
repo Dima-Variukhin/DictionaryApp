@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.myapp.dictionaryapp.R
-import com.myapp.dictionaryapp.di.MainWordDI.getWordInteractorImpl
+import com.myapp.dictionaryapp.di.MainWordDI.getWordInteractor
 import com.myapp.dictionaryapp.domain.Status
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -16,7 +16,7 @@ class MainScreenViewModel : ViewModel() {
     var searchState = MutableLiveData<Pair<Int, String?>>()
     var progressState = MutableLiveData<Boolean>()
 
-    private val interactor = getWordInteractorImpl()
+    private val interactor = getWordInteractor()
     private var job: Job? = null
     private var lastQuery: String = ""
 
